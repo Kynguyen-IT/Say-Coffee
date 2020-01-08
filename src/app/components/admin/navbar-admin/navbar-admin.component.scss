@@ -1,0 +1,19 @@
+mat-toolbar {
+  background-color: #272626 !important;
+  position: fixed;
+  z-index: 999;
+}
+
+.content_toolbar {
+  justify-content: space-between;
+  align-items: center;
+
+  .content_box_title {
+    display: flex;
+    align-items: center;
+  }
+}
+
+.nav_title {
+  color: #fff;
+}

@@ -1,0 +1,47 @@
+<div class="body">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 m-auto">
+        <div class="card card-signin Content_register">
+          <div class="card-body">
+            <h5 class="card-title text-center">Register</h5>
+            <form class="form-signin formGroup">
+              <div class="form-label-group">
+                <input type="text" id="inputUserame" class="form-control content_input formControl"
+                  placeholder="Username" #displayName required autofocus>
+              </div>
+
+              <div class="form-label-group">
+                <input type="email" id="inputEmail" class="form-control content_input formControl"
+                  placeholder="Email address" #email required>
+              </div>
+
+              <hr>
+
+              <div class="form-label-group">
+                <input type="password" id="inputPassword" class="form-control content_input formControl"
+                  placeholder="Password" #password required>
+              </div>
+
+              <div class="form-label-group">
+                <input type="password" id="inputConfirmPassword" class="form-control content_input formControl"
+                  placeholder="Repeat password" #repaetPW required>
+                <!-- <label class="text" for="inputConfirmPassword">Confirm password</label> -->
+              </div>
+
+              <a class="btn btn-lg btn-primary btn-block text-uppercase"
+                (click)="service.signUp(email.value, password.value, displayName.value)">Register</a>
+              <a class="d-block text-center mt-2 small" routerLink="/login">Sign In</a>
+              <hr class="my-4">
+              <button class="btn btn-lg btn-google btn-block text-uppercase" type="submit"
+                (click)="service.googleSignin()"><i class="fab fa-google mr-2"></i> Sign up with Google</button>
+              <button class="btn btn-lg btn-facebook btn-block text-uppercase" type="submit"><i
+                  class="fab fa-facebook-f mr-2"></i> Sign up with Facebook</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

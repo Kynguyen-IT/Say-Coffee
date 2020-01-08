@@ -1,0 +1,20 @@
+.box-table {
+  margin-top: 120px;
+}
+
+.title_table {
+  text-align: center;
+  font-size: 35px;
+}
+
+mat-row {
+  cursor: pointer;
+}
+
+.box_title {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  width: 100%;
+  margin-bottom: 15px;
+}

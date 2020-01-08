@@ -1,0 +1,16 @@
+<div class="container m-0 m-auto box-container" *ngIf="product">
+  <div class="row content_img">
+    <div class="col-sm-6 box-img" [style.backgroundImage]="'url(' + product.image + ')'">
+    </div>
+    <div class="col-sm-6 content_box">
+      <h3 class="title">{{ product.name }}</h3>
+      <span class="text">{{ product.price }}Đ</span>
+      <a href="#" class="btn  btn_button">Order</a>
+
+      <span class="delivery_hotline">
+        Gọi giao hàng tận nơi
+        <a href="#" title="Hotline: 0906573074">0906573074</a>
+      </span>
+    </div>
+  </div>
+</div>

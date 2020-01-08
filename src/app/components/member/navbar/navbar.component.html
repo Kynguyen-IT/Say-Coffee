@@ -1,0 +1,47 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light nav_bar">
+  <div class="container">
+    <a class="navbar-brand nav_title wow slideInLeft" data-wow-duration="2s" data-wow-delay="0.5s"
+      routerLink="/home">SAY COFFEE</a>
+
+    <button type="button" class="navbar-toggler" (click)="isCollapsed = !isCollapsed"
+      [attr.aria-expanded]="!isCollapsed" aria-controls="collapseExample">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse list_items wow lightSpeedIn" data-wow-duration="2s" data-wow-delay="0.5s"
+      id="collapseExample" [ngbCollapse]="isCollapsed" content_navbar>
+      <ul class="navbar-nav content_navbar">
+        <div *ngIf="service.user$ | async as user; then logged; else notlogged"></div>
+        <ng-template #logged>
+          <li class="nav-item user_login" ngbDropdown>
+            <a class="nav-link avatar_user" routerLink="/admin" routerLinkActive="active"
+              [style.backgroundImage]="'url(' + userLogin.photoURL + ')'">
+            </a>
+            <a class="nav-link nav_text" id="dropdownBasic1" ngbDropdownToggle>{{ userLogin.displayName }}</a>
+            <div ngbDropdownMenu aria-labelledby="dropdownBasic1" class="dm_box">
+              <a ngbDropdownItem class="dm_text" routerLink="/home/profile" routerLinkActive="active">Profile</a>
+              <a ngbDropdownItem class="dm_text" *ngIf="userLogin.roles.admin" routerLink="/admin"
+                routerLinkActive="active">Admin
+                Control Panel</a>
+              <a ngbDropdownItem class="dm_text" (click)="signOut()">Logout</a>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link nav_text" routerLink="/home/menu">menu</a>
+          </li>
+        </ng-template>
+        <ng-template #notlogged>
+          <li class="nav-item">
+            <a class="nav-link nav_text" routerLink="/home/menu">menu</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link nav_text" routerLink="/home/login" routerLinkActive="active">Login</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link nav_text" routerLink="/home/register" routerLinkActive="active">Register</a>
+          </li>
+        </ng-template>
+      </ul>
+    </div>
+  </div>
+</nav>

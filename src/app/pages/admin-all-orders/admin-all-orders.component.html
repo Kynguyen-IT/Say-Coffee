@@ -1,0 +1,42 @@
+<div class="container-fluid box-table">
+  <div class="box_title">
+    <h2 class="title_table">Order</h2>
+    <mat-form-field>
+      <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Search order">
+    </mat-form-field>
+  </div>
+
+  <div class="container mat-elevation-z8 ">
+    <mat-table [dataSource]="dataSource" matSort>
+      <ng-container matColumnDef="shipping.email">
+        <mat-header-cell *matHeaderCellDef> Email </mat-header-cell>
+        <mat-cell *matCellDef="let element">
+          {{ element.shipping.email }}
+        </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="orderId">
+        <mat-header-cell *matHeaderCellDef> OrderId </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{ element.orderId }} </mat-cell>
+      </ng-container>
+      <!-- Position Column -->
+      <ng-container matColumnDef="status">
+        <mat-header-cell *matHeaderCellDef> Status </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{ element.status }} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="datePlaced">
+        <mat-header-cell *matHeaderCellDef> DatePlaced </mat-header-cell>
+        <mat-cell *matCellDef="let element">{{ element.datePlaced.toDate() | date }}
+        </mat-cell>
+      </ng-container>
+
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns" [matTooltip]="['Update ' + row.orderId]"
+        (click)="click(row)">
+      </mat-row>
+    </mat-table>
+    <mat-paginator (page)="size = $event" [pageSize]="5" [pageSizeOptions]="[5, 10, 25, 100]">
+    </mat-paginator>
+  </div>
+</div>

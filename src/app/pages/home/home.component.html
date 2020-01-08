@@ -1,0 +1,106 @@
+<ngb-carousel *ngIf="images">
+  <ng-template class="Box-item" ngbSlide *ngFor="let item of images">
+    <div class="picsum-img-wrapper box-img">
+      <img class="img-fluid img" [src]="item.src" alt="Random first slide" />
+    </div>
+    <div class="carousel-caption box-text">
+      <h2 class="title ">Welcome To Say Coffee</h2>
+      <p class="text">
+        A good cup of coffee is both sweet and bitter. An ideal love is a love
+        that is both sweet and bitter.
+      </p>
+    </div>
+  </ng-template>
+</ngb-carousel>
+
+<div class="container">
+  <!-- product hot -->
+  <h2 class="title_menu wow flipInX center" data-wow-duration="1s" data-wow-delay="0.5s">
+    Product hot
+  </h2>
+  <div class="row">
+    <div class="col-sm-12">
+      <ngx-slick-carousel class="carousel" #slickModal="slick-carousel" [config]="slideConfig">
+        <div ngxSlickItem *ngFor="let product of listProduct" class="slide">
+          <div class="box_slick ">
+            <div class="box_slick_item wow bounceInUp center" data-wow-duration="1s" data-wow-delay="0.5s"
+              [style.backgroundImage]="'url(' + product.image + ')'">
+              <span _ngcontent-tcd-c2="" class="badge badge-light badge_slick">Hot</span>
+            </div>
+          </div>
+        </div>
+      </ngx-slick-carousel>
+    </div>
+  </div>
+  <!-- product hot end-->
+
+  <!-- Menu -->
+  <div class="box_menu">
+    <h2 class="title wow slideInLeft" data-wow-duration="1s" data-wow-delay="0.5s">
+      Menu
+    </h2>
+    <a class="animate_btn wow slideInRight" routerLink="/home/menu" data-wow-duration="1s" data-wow-delay="0.5s">All
+      Products</a>
+  </div>
+  <div class="row">
+    <div class="col-md-4 wow bounceInUp center" data-wow-duration="1s" data-wow-delay="0.5s"
+      *ngFor="let product of listProduct">
+      <div class="card box_card">
+        <div class="box_imges">
+          <div class="box_image_item" [style.backgroundImage]="'url(' + product.image + ')'"></div>
+          <div class="card-body">
+            <a [routerLink]="['/home/profile-product', product.id]" routerLinkActive="router-link-active"
+              class="card-title tiltle_item">{{ product.name }}</a>
+            <p class="card-text text_item">
+              {{ product.price | currency: "VND":"symbol" }}
+            </p>
+
+            <button (click)="addToCart(product)" *ngIf="cart.getQuantity(product) === 0" class="btn btn_button">
+              Order
+            </button>
+            <button *ngIf="cart.getQuantity(product) !== 0" class=" btn btn_button" routerLink="/home/cart">
+              In To Cart
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Menu end -->
+
+    <!-- Store -->
+    <div class="box_menu">
+      <h2 class="title">Store</h2>
+    </div>
+    <div class="row ml-0 mr-0">
+      <div class="col-md-6 p-0 wow rollIn" data-wow-duration="1s" data-wow-delay="0.5s">
+        <div class="store_description">
+          <h5 class="store_tile">say coffee</h5>
+          <span class="store_text">With passionate roasters and Barista team and inspiring coffee
+            stories. Say Coffee is a space reserved for those who love
+            passionately the taste of excellent coffee beans.
+          </span>
+        </div>
+      </div>
+      <div class="col-md-6 store_image p-0 wow lightSpeedIn" data-wow-duration="1s" data-wow-delay="0.5s"></div>
+    </div>
+
+    <div class="container ml-0 mr-0">
+      <div class="row box_store_images">
+        <div class="col-md-8 pl-0  wow bounceInLeft" data-wow-duration="1s" data-wow-delay="0.5s">
+          <div class="image_left"></div>
+        </div>
+        <div class="col-md-4 pr-0 wow bounceInRight" data-wow-duration="1s" data-wow-delay="0.5s">
+          <div class="image_right"></div>
+        </div>
+      </div>
+    </div>
+    <!-- Store end -->
+  </div>
+
+  <a routerLink="/home/cart" class="cart_box rounded-circle wow bounce" data-wow-delay="2000ms" data-wow-duration="2.5s"
+    data-wow-iteration="infinite">
+    <span class="badge badge-light badge_cart rounded-circle" *ngIf="cart">{{
+      cart.totalItemsCount
+    }}</span>
+  </a>
+</div>

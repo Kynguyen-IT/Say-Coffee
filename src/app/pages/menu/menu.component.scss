@@ -1,0 +1,47 @@
+.box_image {
+  background-image: url('../../../assets/images/cafe-984275_1920.jpg');
+  width: 100%;
+  height: 450px;
+  background-position: center center;
+  background-size: cover;
+}
+
+.title_menu {
+  text-align: center;
+  margin: 34px auto;
+  text-transform: uppercase;
+  font-weight: bold;
+  color: #ea8025;
+  border-bottom: 2px solid;
+  width: 400px;
+  font-family: 'Bebas Neue';
+  font-size: 35px;
+}
+
+.list_items {
+  background-color: #fff !important;
+  box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.05);
+
+  & .text_item.list-group-item-action {
+    background: unset;
+    border: unset;
+    font-family: 'Bebas Neue';
+    font-size: 20px;
+    text-transform: uppercase;
+    // font-weight: bold;
+    color: #000000;
+
+
+    &:hover {
+      background-color: #ececec;
+    }
+  }
+
+  & .router-link-active {
+    color: #EA8025 !important;
+  }
+}
+
+.box_items {
+  border-left: 2px solid #f57100;
+}

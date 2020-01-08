@@ -1,0 +1,38 @@
+<div class="container-fluid content_table">
+  <div class="row">
+    <div class="box_title">
+      <h2 class="tiile_table">Table Products</h2>
+      <button type="button" class="btn btn-primary" (click)="openAdd()"><i class="fas fa-plus-circle"></i> Add
+        Product</button>
+    </div>
+
+    <table class=" table table-striped">
+      <thead>
+        <tr>
+          <th>No.</th>
+          <th>image</th>
+          <th>Name</th>
+          <th>price</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let product of listProducts; index as i">
+          <td>{{ i + 1 }}</td>
+          <td class="images">
+            <div class="box_img" [style.backgroundImage]="'url(' + product.image + ')'"></div>
+          </td>
+          <td class="text-capitalize">{{ product.name }}</td>
+          <td>{{ product.price}}</td>
+          <td>
+            <button type="button" class="btn btn-primary" (click)="openEdit($event, product)"><i
+                class="far fa-edit"></i></button>
+            /
+            <button type="button" class="btn btn-danger" (click)="deleteProcduct($event,product )"><i
+                class="fas fa-trash-alt"></i></button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

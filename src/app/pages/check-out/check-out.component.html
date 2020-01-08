@@ -1,0 +1,54 @@
+<div class="container-fluid">
+  <h2 class="title">Shipping</h2>
+  <div class="row d-flex align-items-center">
+    <div class="col-md-6 d-flex align-items-center">
+      <form #f="ngForm" (ngSubmit)="save(f.value)">
+        <div class="row d-flex align-items-center justify-content-center">
+          <div class="col-md-12 input">
+            <mat-form-field class="fullWidth">
+              <input matInput placeholder="Fullname" name="fullname" ngModel required>
+            </mat-form-field>
+          </div>
+          <div class="col-md-12 input">
+            <mat-form-field class="fullWidth">
+              <input matInput placeholder="E-mail(Optional)" name="email" ngModel email>
+            </mat-form-field>
+          </div>
+          <div class="col-md-12 input">
+            <mat-form-field class="fullWidth">
+              <input matInput placeholder="Address" ngModel name="address" required>
+            </mat-form-field>
+          </div>
+
+          <div class="col-md-12 input">
+            <mat-form-field class="fullWidth">
+              <input matInput placeholder="City" ngModel name="city" required>
+            </mat-form-field>
+          </div>
+        </div>
+        <button class="d-flex m-auto" mat-raised-button color="primary"
+          [disabled]="!f.valid || cart?.items.length == 0">Save</button>
+      </form>
+    </div>
+    <div class="col-md-6">
+      <div class="card">
+        <div class="card-body">
+          <h4 class="card-title">Order Summary</h4>
+          <p class="card-text">You have {{cart.totalItemsCount}} items in your shoping cart.</p>
+        </div>
+        <div class="card-body pt-0">
+          <ul class="list-group list-group-flush" *ngFor="let item of cart.items">
+            <li class="list-group-item d-flex justify-content-between text-capitalize">
+              <span>{{cart.getQuantity(item)}} * {{item.name}} </span>
+              <span>{{ item.totalPrice | currency: "VND":"symbol" }}</span>
+            </li>
+          </ul>
+          <li class="d-flex justify-content-between pt-3 pl-2 pr-2">
+            <span class="font-weight-bold">Total:</span>
+            <span class="font-weight-bold">{{ cart.totalPrice | currency: "VND":"symbol" }}</span>
+          </li>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

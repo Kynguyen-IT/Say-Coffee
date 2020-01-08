@@ -1,0 +1,70 @@
+ <div class="container-fluid m-0 p-0">
+   <div class="row cart mr-0 ml-0">
+     <div class="box_image col-md-4">
+       <h4 class="title">Cart</h4>
+       <img class="img-fluid" src="../../../assets/images/Coffee-bike.jpg" alt="cart">
+       <div class="col-md-12 justify-content-between d-flex flex-column align-items-center">
+         <span *ngIf="cart">You have {{ cart.totalItemsCount }} items in your cart</span>
+         <button *ngIf="cart.items.length" type="button" (click)="clearCart()" class="btn btn-danger clear_cart">Clear
+           cart</button>
+       </div>
+
+     </div>
+     <div class="container box_cart p-0 col-md-8">
+       <table class="table table-fixed">
+         <thead>
+           <tr>
+             <th scope="col">Image</th>
+             <th scope="col">Name</th>
+             <th scope="col">
+               Quantity
+             </th>
+             <th scope="col">Price</th>
+           </tr>
+         </thead>
+         <tbody>
+           <tr class="list" *ngFor="let item of cart.items">
+             <td class="images">
+               <div class="box_img" [style.backgroundImage]="'url(' + item.image + ')'"></div>
+             </td>
+             <td class="text-capitalize">{{ item.name }}</td>
+
+             <td>
+               <div class="row justify-content-center">
+                 <button type="button" class="btn" (click)="removeFormCart(item)"><i
+                     class="fas fa-minus icon_button"></i></button>
+                 <span class="text_quantity">{{ cart.getQuantity(item) }}</span>
+                 <button type="button" class="btn"><i class="fas fa-plus icon_button"
+                     (click)="addToCart(item)"></i></button>
+               </div>
+             </td>
+             <td>
+               {{ item.totalPrice | currency: "VND":"symbol" }}
+             </td>
+           </tr>
+           <tr *ngIf="cart.items.length === 0">
+             <td colspan="5">No thing in this cart.</td>
+           </tr>
+         </tbody>
+       </table>
+     </div>
+     <div class="container">
+       <div class="row">
+         <div class="col-md-4"></div>
+         <div class="col-md-8  mt-3 align-items-center">
+           <div class="row">
+             <div class="col-md-6">
+               <button *ngIf="cart.items.length" (click)="openCheckout()" type="button" class="btn btn-success">Check
+                 Out</button>
+             </div>
+
+             <div class="col-md-6">
+               <span class="total">Total: {{ cart.totalPrice | currency: "VND":"symbol" }} </span>
+             </div>
+           </div>
+         </div>
+       </div>
+
+     </div>
+   </div>
+ </div>

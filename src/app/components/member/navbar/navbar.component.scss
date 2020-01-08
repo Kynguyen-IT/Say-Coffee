@@ -1,0 +1,93 @@
+.nav_bar {
+  justify-content: space-between !important;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .3);
+  background-color: #272626 !important;
+  // opacity: 0.8;
+  position: fixed;
+  width: 100%;
+  z-index: 45;
+  top: 0;
+
+
+  & .content_navbar {
+    align-items: center;
+  }
+
+  .nav_title {
+    color: #ccc;
+  }
+
+  .nav_text.nav-link {
+    color: #ccc;
+    text-transform: capitalize;
+    cursor: pointer;
+
+    &.active {
+      color: #fff;
+    }
+
+    &:hover {
+      color: #fff;
+    }
+  }
+
+
+
+  .list_items {
+    flex-grow: unset;
+  }
+
+  .user_login {
+    display: flex;
+    align-items: center;
+
+    & .avatar_user {
+      width: 40px;
+      height: 40px;
+      border-radius: 100%;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center center;
+      margin: 0;
+      padding: 0;
+    }
+  }
+}
+
+.dm_box {
+  background-color: #151515;
+  opacity: 0.8;
+  border: unset;
+  border-radius: unset;
+  // padding: 0;
+  top: 46px;
+
+  & .dm_text {
+    color: #d4d4d4;
+    cursor: pointer;
+
+    &:hover {
+      color: #fff;
+      background-color: unset;
+    }
+  }
+}
+
+.badge_cart {
+  position: absolute;
+  top: 15%;
+  left: 49.9%;
+  border-radius: 50%;
+  background-color: #ea8025;
+  color: #000;
+}
+
+
+
+
+
+
+// .avatar_user {
+//   width: 35px;
+//   height: 35px;
+// }

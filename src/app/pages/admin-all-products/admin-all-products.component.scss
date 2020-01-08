@@ -1,0 +1,44 @@
+.content_table {
+  padding-top: 130px;
+}
+
+.box_title {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  width: 100%;
+  margin-bottom: 22px;
+}
+
+
+.box_img {
+  width: 50px;
+  height: 50px;
+  background-origin: unset;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 50%;
+}
+
+span.total {
+  float: right;
+  // margin-top: 15px;
+  font-size: 22px;
+  clear: right;
+  color: #ea8025;
+}
+
+.clear_cart {
+  width: 100px;
+  margin-top: 10px;
+}
+
+th,
+td {
+  text-align: center;
+}
+
+td.images {
+  text-align: -webkit-center;
+}

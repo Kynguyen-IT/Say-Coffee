@@ -1,0 +1,40 @@
+<div class="container-fluid content_table">
+  <div class="row">
+    <div class="box_title">
+      <h2 class="tiile_table">Table Users</h2>
+    </div>
+
+    <table class=" table table-striped">
+      <thead>
+        <tr>
+          <th>No.</th>
+          <th>image</th>
+          <th>Name</th>
+          <th>Email</th>
+          <th>phone</th>
+          <th>Birthday</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let user of listUser; index as i">
+          <td>{{ i + 1 }}</td>
+          <td class="images">
+            <div class="box_img" [style.backgroundImage]="'url(' + user.photoURL + ')'"></div>
+          </td>
+          <td>{{ user.displayName }}</td>
+          <td>{{ user.email}}</td>
+          <td>{{ user.phone}}</td>
+          <td>{{ user.birthday}}</td>
+          <td>
+            <button type="button" class="btn btn-primary" (click)="openEdit($event, user)"><i
+                class="far fa-edit"></i></button>
+            /
+            <button type="button" class="btn btn-danger" (click)="deteleUser($event, user)"><i
+                class="fas fa-trash-alt"></i></button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

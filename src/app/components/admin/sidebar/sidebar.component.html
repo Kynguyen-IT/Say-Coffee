@@ -1,0 +1,27 @@
+<nav id="sidebar" [class.menu-open]="isMenuOpen" [class.menu-close]="!isMenuOpen">
+  <a class="sidebar-header" *ngIf="service.user$ | async as user" routerLink="/profile">
+    <div class="img_avatar" [style.backgroundImage]="'url(' + userLogin.photoURL + ')'">
+    </div>
+    <span class="text_avatar">{{ userLogin.displayName }}</span>
+  </a>
+
+  <ul class="list-unstyled components">
+    <li class="link_item">
+      <a [routerLink]="['/admin/dashboard']" routerLinkActive="router-link-active"> <i
+          class="fas fa-tachometer-alt"></i> Dashboard</a>
+    </li>
+
+    <li class="link_item">
+      <a [routerLink]="['/admin/allUsers']" routerLinkActive="router-link-active"><i class="fas fa-users"></i> Users</a>
+    </li>
+    <li class="link_item">
+      <a [routerLink]="['/admin/allProducts']" routerLinkActive="router-link-active"><i class="fas fa-list-ul"></i>
+        Products</a>
+    </li>
+
+    <li class="link_item">
+      <a [routerLink]="['/admin/allOrders']" routerLinkActive="router-link-active"><i class="fab fa-jedi-order"></i>
+        Orders</a>
+    </li>
+  </ul>
+</nav>

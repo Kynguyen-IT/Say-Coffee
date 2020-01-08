@@ -1,0 +1,29 @@
+.bg_footer {
+  background-color: #272626;
+  margin-top: 40px;
+
+  .box-footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    .title {
+      color: #ccc;
+      text-decoration: none;
+
+      &.active {
+        color: #fff;
+      }
+
+      &:hover {
+        color: #fff;
+      }
+    }
+
+    .text {
+      color: #ccc;
+    }
+
+
+  }
+}

@@ -1,0 +1,65 @@
+<div class="modal-header">
+  <h4 class="modal-title">Edit Product</h4>
+</div>
+<!-- <form> -->
+
+<div class="container-fluid">
+  <div class="row box_model_main">
+    <div class="col-md-5">
+      <div class=" modal-boy">
+        <div class="container">
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" class="form-control" [(ngModel)]="name" />
+          </div>
+
+          <div class="form-group">
+            <label for="price">Price</label>
+            <input type="number" class="form-control" [(ngModel)]="price" />
+          </div>
+
+          <div class="form-group">
+            <label for="price">Category</label>
+            <select class="custom-select" [(ngModel)]="category">
+              <option selected>category...</option>
+              <option *ngFor="let item of categorys" [value]="item.id">{{ item.name }}
+              </option>
+            </select>
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <!-- <span *ngIf="showMyMessage" class="text-danger col-sm-8" role="alert">
+            You have not updated name, price or category!
+          </span>
+          <span *ngIf="ShowSuccess" class="text-success col-sm-8" role="alert">
+            You have update success!
+          </span> -->
+          <a class="btn btn-success" (click)="editProduct()">
+            Submit
+          </a>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="col-md-7">
+      <div class="row box_procdut">
+        <div class="col-sm-6">
+          <div class="box_img" [style.backgroundImage]="'url(' + image + ')'"></div>
+        </div>
+        <div class="col-sm-6 box_product_item">
+          <span class="title_item">{{ name }}</span>
+          <span class="text_item">{{price}}Đ</span>
+        </div>
+        <input type="file" id="file" (change)="uploadFile($event)" #up />
+        <label for="file">Choose a file</label>
+      </div>
+
+
+    </div>
+  </div>
+</div>
+
+
+<!-- </form> -->

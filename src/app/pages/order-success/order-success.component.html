@@ -1,0 +1,33 @@
+<div class="container">
+  <div class="box_order">
+    <mat-card class="text-center card_box">
+      <mat-card-title class="text-success display-1">
+        <i class="far fa-check-circle"></i>
+      </mat-card-title>
+      <mat-card-content>
+        <h2>Awesome!</h2>
+        <div class="alert alert-success" role="alert">
+          <p>
+            Your order id is
+            <span class="text-danger h6">{{ orderId }}</span>
+          </p>
+          <p class="mb-0">
+            Order Status:
+            <span class="text-danger h6">{{order.status}}</span>
+          </p>
+        </div>
+        <p>
+          You'll receive an email information shortly.
+        </p>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-raised-button color="primary">
+          My Order
+        </button>
+        <button mat-raised-button color="warn" routerLink="/">
+          Continue Shopping
+        </button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+</div>
